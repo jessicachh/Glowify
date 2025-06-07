@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="{% static 'photos/glowify.png' %}" alt="" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'blog' %}">Blogs</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li>
+            <a href="{% url 'login' %}" class="login-btn">
+              Log out <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    <section class="contact">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Reach out to us using the form below or through our contact details.</p>
+    
+        <!-- Contact details and form in a flex container -->
+        <div class="contact-container">
+            <!-- Contact Details in a card -->
+            <div class="contact-details">
+                <h3>Contact Details</h3>
+            <p>Reach us out with the contact details below or quickly send us a message through the form in your right!</p>
+                <p><i class="fa-solid fa-phone"></i> Phone: +977 9812345678</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: support@glowify.com</p>
+                <p><i class="fa-solid fa-map-marker-alt"></i> Address: Dulari, Morang, Nepal</p>
+            </div>
+    
+            <!-- Contact Form on the right -->
+            <form class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+    
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+    
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <section class="map">
+        <h2>Find Us Here</h2>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22448.61704530045!2d86.6922066!3d26.6554085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6ea070e7b18b%3A0x2959e2a3e2bf54e0!2sItahari+International+College!5e0!3m2!1sen!2snp!4v1695863714114!5m2!1sen!2snp"
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </section>
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="home.html"><img src="{% static 'photos/glowify.png' %}" alt="Glowify Logo"></a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'blog' %}">Blogs</a></li>
+                  <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Glowify. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

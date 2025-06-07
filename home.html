@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glowify</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="{% static 'photos/glowify.png' %}" alt="" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'blog' %}">Blogs</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li>
+          <a href="{% url 'login' %}" class="login-btn">
+            Log out <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <div class="hero-section">
+        <div class="hero-heading">
+          <h1>Glow with Confidence: Your Ultimate Beauty Destination!</h1>
+          <p>
+            Discover top-quality beauty products and skincare essentials
+            tailored just for you. Elevate your glow with expert-selected items
+            that bring out your best self!
+          </p>
+          <button class="cta-btn" onclick="scrollToConsult()">
+            Start your Consultation<i class="fa-solid fa-angle-right"></i>
+          </button>
+        </div>
+        <div class="main-img">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1684407616442-8d5a1b7c978e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNraW5jYXJlfGVufDB8fDB8fHww"
+            alt=""
+          />
+        </div>
+      </div>
+
+<!-- Skincare Questionnaire Section -->
+<section class="skin-type">
+  <div class="skin-type-container">
+    <div class="skin-type-image">
+      <img src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGZhY2UlMjBza2lufGVufDB8fDB8fHww" alt="Skincare Consultation">
+    </div>
+    <div class="skin-type-content">
+      <h2>Find your skin type</h2>
+      <p>Take this quick quiz to help us figure out your skin type. Our AI-powered system will analyze your answers to determine your skin type. Once you know your skin type, you can explore other features on this website to get a personalized skincare routine tailored just for you!</p>
+      <a href="{% url 'skintype' %}"><button>Take the test</button></a>
+      
+    </div>
+  </div>
+</section>
+
+
+
+      <!-- How it works - Services -->
+      <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps-container">
+          <div class="step">
+            <img src="{% static 'photos/quiz.png' %}" alt="Take the Quiz" />
+            <h3>Take the Quiz</h3>
+            <p>Answer a few questions about your skin type and concerns.</p>
+          </div>
+          <div class="step">
+            <img src="{% static 'photos/task.png' %}" alt="Get Your Routine" />
+            <h3>Get Your Routine</h3>
+            <p>Receive a custom morning and evening skincare plan.</p>
+          </div>
+          <div class="step">
+            <img src="{% static 'photos/progress.png' %}" alt="Track Your Progress" />
+            <h3>Track Your Progress</h3>
+            <p>Monitor your skin’s improvement and upload photos.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Skincare Consultation -->
+      <section class="skincare-consultation" id="skincare-consult">
+        <div class="consultation-container">
+            <div class="consultation-content">
+                <h2>Personalized Skincare Routine Builder</h2>
+                <p>Based on your skin type and concerns, we’ll build a customized skincare routine for both morning and evening. Get the perfect routine tailored just for you!</p>
+                <a href="{% url 'skincare' %}" class="quiz-btn">Get your routine</a>
+            </div>
+            <div class="consultation-image">
+              <img src="{% static 'photos/skincare.jpg' %}" alt="Skincare Consultation">
+          </div>
+        </div>
+    </section>
+
+
+    <div class="cta-section">
+      <img src="https://www.bellobello.my/wp-content/uploads/2022/08/boldlipessentials-2.jpg" alt="Skincare Products">
+      <div>
+          <h2>View All Products</h2>
+          <p>Explore our full range of skincare products to complete your routine with the perfect match for your skin type. Here you can view all the products available, helping you better understand what you need to use based on your individual skincare goals and preferences.</p>
+          <a href="{% url 'products' %}">Browse Products</a>
+      </div>
+  </div>
+  
+    </main>
+
+<!-- Feedback -->
+    <section class="customer-feedback">
+        <h2>Customer Feedback</h2>
+        <div class="feedback-container">
+          <div class="feedback-nav-left">
+            <button class="prev-btn"><i class="fa-solid fa-angle-left"></i></button>
+          </div>
+      
+          <div class="feedback-display">
+            <div class="feedback-item">
+              <div class="feedback-photo">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fHww" alt="Customer Photo" />
+              </div>
+              <div class="feedback-text">
+                <p class="feedback-message">"Glowify's products transformed my skin! I love the personalized skincare plan."</p>
+                <p class="customer-name">- Sarah T.</p>
+              </div>
+            </div>
+          </div>
+      
+          <div class="feedback-nav-right">
+            <button class="next-btn"><i class="fa-solid fa-angle-right"></i></button>
+          </div>
+        </div>
+      </section>
+      
+      
+
+      
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="home.html"><img src="{% static 'photos/glowify.png' %}" alt="Glowify Logo"></a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'blog' %}">Blogs</a></li>
+                  <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Glowify. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+</body>
+</html>

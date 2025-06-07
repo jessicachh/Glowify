@@ -1,0 +1,320 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skincare Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+      /* General form styles */
+.blog-form {
+    max-width: 600px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+
+.form-group label {
+    display: block; 
+    margin-bottom: 5px;
+    font-weight: bold; 
+}
+
+.blog-form input[type="text"],
+.blog-form textarea,
+.blog-form input[type="file"] {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    font-size: 16px;
+}
+
+.submit-btn {
+    background-color: #F44174; 
+    color: white; 
+    padding: 10px 15px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #F63A63; 
+}
+
+.blog-form .error {
+    color: red; 
+    font-size: 14px; 
+}
+.action-links {
+    display: flex;
+    gap: 15px; 
+}
+
+.action-links a {
+    display: inline-flex;
+    align-items: center; 
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.edit-icon {
+    color: #28a745; 
+}
+
+.edit-icon:hover {
+    color: #218838; 
+}
+
+.delete-icon {
+    color: #dc3545; 
+}
+
+.delete-icon:hover {
+    color: #c82333; 
+}
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="{% static 'photos/glowify.png' %}" alt="" />
+      </div>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'blog' %}">Blogs</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+        <li>
+          <a href="{% url 'login' %}" class="login-btn">
+            Log out <i class="fa-solid fa-arrow-right-to-bracket"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="blog-section">
+      <h2>Expert Skincare Tips & Advice</h2>
+      <p>
+        Discover the best skincare routines, product recommendations, and expert
+        advice for healthy skin.
+      </p>
+
+      <div class="blog-container">
+        <!-- Blog Post 1 -->
+        <div class="blog-post">
+          <img
+            src="https://blogscdn.thehut.net/app/uploads/sites/1160/2018/01/080819-Body-Prods.jpg"
+            alt="Skincare Routine"
+          />
+          <h3>Best Morning Skincare Routine</h3>
+          <p>
+            Learn how to start your day with the perfect skincare routine for
+            glowing skin.
+          </p>
+          <a
+            href="https://www.dermstore.com/blog/skin-care-basics/"
+            class="read-more"
+            target="_blank"
+            >Read More</a
+          >
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="blog-post">
+          <img
+            src="https://blogscdn.thehut.net/app/uploads/sites/1160/2018/01/092619-Body-Decades-20s.jpg"
+            alt="Oily Skin Tips"
+          />
+          <h3>How to Control Oily Skin</h3>
+          <p>
+            Struggling with oily skin? Here are expert-approved tips to keep
+            your skin balanced.
+          </p>
+          <a
+            href="https://www.dermstore.com/blog/skin-care-guide/"
+            class="read-more"
+            target="_blank"
+            >Read More</a
+          >
+        </div>
+
+        <!-- Blog Post 3 -->
+        <div class="blog-post">
+          <img
+            src="https://www.dermstore.com/images?url=https://blogscdn.thehut.net/app/uploads/sites/1160/2023/03/MicrosoftTeams-image-61_1680112591_1200x672_acf_cropped.jpg&auto=avif&width=1200&fit=crop"
+            alt="Hydration"
+          />
+          <h3>The Importance of Hydration</h3>
+          <p>
+            Why drinking water and using hydrating products is key to flawless
+            skin.
+          </p>
+          <a
+            href="https://www.dermstore.com/blog/set-your-skin-care-routine-up-for-success/"
+            class="read-more"
+            target="_blank"
+            >Read More</a
+          >
+        </div>
+
+        <!-- Blog Post 4 -->
+        <div class="blog-post">
+          <img
+            src="{% static 'photos/vitamin-c.png' %}"
+            alt="Vitamin C in Skincare"
+          />
+          <h3>The Power of Vitamin C in Skincare</h3>
+          <p>
+            Learn how Vitamin C boosts skin health, reduces dark spots, and
+            enhances your glow.
+          </p>
+          <a
+            href="https://naturalimageskincenter.com/the-power-of-vitamin-c-in-skincare/"
+            class="read-more"
+            target="_blank"
+            >Read More</a
+          >
+        </div>
+
+        <!-- Blog Post 5 -->
+        <div class="blog-post">
+          <img
+            src="{% static 'photos/acid.png' %}"
+            alt="Hyaluronic Acid Hydration"
+          />
+          <h3>How Hyaluronic Acid Hydrates Skin</h3>
+          <p>
+            Discover how this powerful ingredient locks in moisture and keeps
+            your skin hydrated.
+          </p>
+          <a
+            href="https://naturalimageskincenter.com/how-hyaluronic-acid-hydrates-skin/"
+            class="read-more"
+            target="_blank"
+            >Read More</a
+          >
+        </div>
+
+        <!-- Blog Post 6 -->
+        <div class="blog-post">
+          <img
+            src="{% static 'photos/acne.png' %}"
+            alt="Fungal Acne vs Bacterial Acne"
+          />
+          <h3>Fungal Acne vs Bacterial Acne: What’s the Difference?</h3>
+          <p>
+            Understand the key differences between fungal and bacterial acne,
+            and how to treat each.
+          </p>
+          <a
+            href="https://naturalimageskincenter.com/fungal-acne-vs-bacterial-acne-whats-the-difference/"
+            class="read-more"
+            target="_blank"
+            >Read More</a
+          >
+        </div>
+          {% for post in blog_posts %}
+              <div class="blog-post">
+                  {% if post.image %}
+                      <img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 300px;">
+                  {% endif %}
+                  <h3>{{ post.title }}</h3>
+                  <p>{{ post.content }}</p>
+                  <p>By {{ post.author }} on {{ post.created_at }}</p>
+                  {% if post.author == request.user %}
+                  <div class="action-links">
+                    <a href="{% url 'edit-blog-post' post.id %}" class="edit-icon">
+                        <i class="fa-solid fa-edit"></i>
+                    </a>
+                    <a href="{% url 'delete-blog-post' post.id %}" class="delete-icon">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
+                  {% endif %}
+              </div>
+          {% empty %}
+          {% endfor %}
+    </section>
+
+
+    <form method="POST" enctype="multipart/form-data" class="blog-form">
+      {% csrf_token %}
+      <div class="form-group">
+          <label for="id_title">Title:</label>
+          {{ form.title }}
+          {{ form.title.errors }}
+      </div>
+      <div class="form-group">
+          <label for="id_content">Content:</label>
+          {{ form.content }}
+          {{ form.content.errors }}
+      </div>
+      <div class="form-group">
+          <label for="id_image">Image:</label>
+          {{ form.image }}
+          {{ form.image.errors }}
+      </div>
+      <button type="submit" class="submit-btn">Add Blog Post</button>
+  </form>
+
+  
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-logo">
+          <a href="home.html"
+            ><img src="{% static 'photos/glowify.png' %}" alt="Glowify Logo"
+          /></a>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'blog' %}">Blogs</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Glowify. All rights reserved.</p>
+      </div>
+    </footer>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+        
+  </body>
+</html>

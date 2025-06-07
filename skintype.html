@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Skin Type</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="{% static 'photos/glowify.png' %}" alt="" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'blog' %}">Blogs</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li>
+            <a href="{% url 'login' %}" class="login-btn">
+              Log out <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    <section class="quiz-container">
+        <h2>Find Your Skin Type</h2>
+        <p>Answer a few simple questions to discover your skin type and get the best skincare recommendations!</p>
+
+        <form id="skinTypeQuiz">
+            <div class="question">
+                <p>1. How does your skin feel after washing?</p>
+                <label><input type="radio" name="q1" value="dry"> Tight and dry</label>
+                <label><input type="radio" name="q1" value="oily"> Oily and greasy</label>
+                <label><input type="radio" name="q1" value="normal"> Normal, not too dry or oily</label>
+                <label><input type="radio" name="q1" value="combination"> Oily in some areas, dry in others</label>
+            </div>
+
+            <div class="question">
+                <p>2. How often do you experience breakouts?</p>
+                <label><input type="radio" name="q2" value="oily"> Very often</label>
+                <label><input type="radio" name="q2" value="combination"> Occasionally, mostly in certain areas</label>
+                <label><input type="radio" name="q2" value="normal"> Rarely</label>
+                <label><input type="radio" name="q2" value="dry"> Almost never</label>
+            </div>
+
+            <div class="question">
+                <p>3. How does your skin feel throughout the day?</p>
+                <label><input type="radio" name="q3" value="dry"> Dry and flaky</label>
+                <label><input type="radio" name="q3" value="oily"> Shiny and greasy</label>
+                <label><input type="radio" name="q3" value="normal"> Balanced and comfortable</label>
+                <label><input type="radio" name="q3" value="combination"> Oily in some areas, dry in others</label>
+            </div>
+
+            <div class="question">
+                <p>4. How does your skin react to new skincare products?</p>
+                <label><input type="radio" name="q4" value="sensitive"> Easily irritated and red</label>
+                <label><input type="radio" name="q4" value="normal"> No reaction, works fine</label>
+                <label><input type="radio" name="q4" value="oily"> Sometimes causes breakouts</label>
+                <label><input type="radio" name="q4" value="dry"> Feels tight or even drier</label>
+            </div>
+
+            <button class="skintype-btn" type="button" onclick="calculateSkinType()">Find My Skin Type</button>
+        </form>
+
+        <div id="result" class="result-container"></div>
+    </section>
+
+        
+<!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <a href="home.html"><img src="{% static 'photos/glowify.png' %}" alt="Glowify Logo"></a>
+            </div>
+            <div class="footer-links">
+                <ul>
+                  <li><a href="{% url 'home' %}">Home</a></li>
+                  <li><a href="{% url 'about' %}">About</a></li>
+                  <li><a href="{% url 'blog' %}">Blogs</a></li>
+                  <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Glowify. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        function calculateSkinType() {
+            const answers = {
+                dry: 0,
+                oily: 0,
+                normal: 0,
+                combination: 0,
+                sensitive: 0
+            };
+
+            const form = document.getElementById('skinTypeQuiz');
+            const inputs = form.querySelectorAll('input[type="radio"]:checked');
+
+            inputs.forEach(input => {
+                answers[input.value]++;
+            });
+
+            let skinType = Object.keys(answers).reduce((a, b) => answers[a] > answers[b] ? a : b);
+
+            document.getElementById("result").innerHTML = `<h3>Your Skin Type: ${skinType.charAt(0).toUpperCase() + skinType.slice(1)}</h3>
+            <p>Now that you know your skin type, check out our <a href="{% url 'skincare' %}">Personalized Skincare Routine Builder</a> for tailored recommendations!</p>`;
+        }
+    </script>
+
+</body>
+</html>

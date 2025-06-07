@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Glowify - Login</title>
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="image-section"></div>
+      <div class="login-section">
+        <div class="login-box">
+          <img class="logo" src="{% static 'photos/tlogo.png' %}" alt="" />
+          <h2>Login</h2>
+
+          
+          <form method="POST">
+            {% csrf_token %}
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username" 
+              placeholder="Enter your username"
+              value="{{ form.username.value }}" 
+              required
+            />
+            
+            <label for="password">Password</label>
+            <div class="password-container">
+              <input
+                type="password"
+                id="password"
+                name="password" 
+                placeholder="Enter your password"
+                value="{{ form.password.value }}"  
+                required
+              />
+              <span id="togglePassword" class="fa fa-eye"></span>
+            </div>
+{% if messages %}
+<div class="error-messages">
+  {% for message in messages %}
+    <p style="color: red; font-weight: 600; text-align: center;" class="error">{{ message }}</p>
+  {% endfor %}
+</div>
+{% endif %}
+            <button type="submit">Login</button>
+            <p class="register-link">
+              Don't have an account? <a href="{% url 'register' %}">Register</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

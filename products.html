@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glowify</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="{% static 'photos/glowify.png' %}" alt="" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'blog' %}">Blogs</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li>
+            <a href="{% url 'login' %}" class="login-btn">
+              Log out <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      
+    <div class="product_h1">
+        <h1>Product List</h1>
+    </div>
+
+    <div class="container">
+     <!-- Cleanser Section -->
+<h2 class="section-header">Cleanser</h2>
+<div class="product-container">
+    <div class="product-card">
+        <img src="https://pyxis.nymag.com/v1/imgs/ffb/583/e4706ee14c84d9f71347b9c712825f0c40-2-23-SkinCare.1x.rsquare.w1400.jpg" alt="Oily Skin Cleanser">
+        <h3>Oil-free Cleanser</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://static.beautytocare.com/cdn-cgi/image/f=auto/media/catalog/product//c/e/cerave-hydrating-cleanser-normal-to-dry-skin-236ml_2.jpg" alt="Dry Skin Cleanser">
+        <h3>Hydrating Cleanser</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://pyxis.nymag.com/v1/imgs/bf8/1b4/c546e77e67607169c4c6fb8c453722e1dd-3-13-BICFaceWAsh.rsquare.w400.jpg" alt="Combination Skin Cleanser">
+        <h3>Gentle Foaming Cleanser</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://www.healme.com.np/storage/Product/PR-1717863780-5232753.webp" alt="Normal Skin Cleanser">
+        <h3>Mild Cleanser</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://media.glamourmagazine.co.uk/photos/64e748f2a801d2d591f9b9bb/1:1/w_1280,h_1280,c_limit/%20Best%20Cleansers%20with%20Salicylic%20Acid240820236%20COPY_L.jpg" alt="Salicylic Acid Cleanser">
+        <h3>Salicylic Acid Cleanser</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://www.healme.com.np/storage/Product/PR-1734436602-9840529.webp" alt="Cream Cleanser">
+        <h3>Cream Cleanser</h3>
+    </div>
+</div>
+
+<!-- Toner Section -->
+<h2 class="section-header">Toner</h2>
+<div class="product-container">
+    <div class="product-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/gh-051421-best-tones-for-acne-1621024265.png?crop=0.489xw:0.978xh;0.277xw,0&resize=640:*" alt="Acne Toner">
+        <h3>Acne-fighting Toner</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/gh-102621-antioxidant-serums-1635346167.png?crop=0.502xw:1.00xh;0.256xw,0&resize=640:*" alt="Aging Toner">
+        <h3>Antioxidant Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://gulaafi.com/get-image/product_media_main/6266887a1c746a3d2d684153_the-purest-solutions-brightening-lightening-vitamin-c-serum-10-ascorbic-acid-ferulic-acid-05-30ml_1670492110.jpeg" alt="Hyperpigmentation Toner">
+        <h3>Vitamin C Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/gh-0609921-toners-for-sensitive-skin-1623340093.png?crop=0.502xw:1.00xh;0.250xw,0&resize=640:*" alt="Sensitivity Toner">
+        <h3>Calming Toner</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/gh-052021-toners-for-oily-skin-1621533920.png?crop=0.502xw:1.00xh;0.250xw,0&resize=1200:*" alt="Balancing Toner">
+        <h3>Balancing Toner</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://i.redd.it/ut5hadnema791.jpg" alt="Fragrance-Free Toner">
+        <h3>Fragrance-Free Toner</h3>
+    </div>
+</div>
+
+<!-- Moisturizer Section -->
+<h2 class="section-header">Moisturizer</h2>
+<div class="product-container">
+    <div class="product-card">
+        <img src="https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/skincare/moisturizers/facial-moisturizers/ultra-light-moisturizing-gel/desktop-700x875/ultra-light-gel-packshot-desktop-700x875-v1.jpg" alt="Oily Skin Moisturizer">
+        <h3>Lightweight Moisturizer</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://www.clickoncare.com/cdn/shop/files/maxrich-intensive-moisturing-cream-tube-of-150-2-1669710117.jpg?v=1692361718" alt="Dry Skin Moisturizer">
+        <h3>Rich Moisturizer</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://assets.vogue.com/photos/66a7f09b97d05a94414960f2/3:4/w_748%2Cc_limit/Lightweight%2520Moisturizers_Slides_0006_image6.jpg" alt="Combination Skin Moisturizer">
+        <h3>Light Moisturizer</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/best-moisturiser-dry-skin-65bbd17e5d0cc.jpg?crop=0.495xw:0.984xh;0.244xw,0&resize=1200:*" alt="Normal Skin Moisturizer">
+        <h3>Hydrating Moisturizer</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71uRcYIwgjL._SL1500_.jpg" alt="Night Cream Moisturizer">
+        <h3>Gel Moisturizer</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://i5.walmartimages.com/seo/CETAPHIL-Rich-Hydrating-Night-Cream-Face-With-Hyaluronic-Acid-1-7-oz-Moisturizing-Dry-Very-Skin-No-Added-Fragrance-Packaging-May-Vary_bfac4dae-59e4-4826-8900-3d2e2d172bb5.349d46a2be1e4d702bef0811769a1eb2.jpeg" alt="Rich Hydrating Moisturizer">
+        <h3>Rich Hydrating Cream</h3>
+    </div>
+</div>
+
+<!-- Sun Cream Section -->
+<h2 class="section-header">Sun Cream (SPF)</h2>
+<div class="product-container">
+    <div class="product-card">
+        <img src="https://www.fixderma.com/cdn/shop/files/Spf_50_cream_front.webp?v=1732278864" alt="Oily Skin SPF">
+        <h3>SPF 50</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://img.drz.lazcdn.com/static/np/p/e699790357f0de894fd14f66e0e6c7d4.jpg_720x720q80.jpg" alt="Dry Skin SPF">
+        <h3>SPF 30 for Dry skin</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71vKKh1DTRL._SL1500_.jpg" alt="Combination Skin SPF">
+        <h3>SPF 40</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://ordernow.com.np/uploads/all/xcU3nHhIjcbrjFQ0MRikyFflsWksyAhArA9SzkzK.jpg" alt="Normal Skin SPF">
+        <h3>SPF 30 for Normal skin</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://aqualogica.in/cdn/shop/files/Glow__Sunscreen_80g.jpg?v=1722337818&width=533" alt="Extra SPF Protection">
+        <h3>Extra SPF Protection</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://imgix.bustle.com/uploads/image/2023/4/27/8d2d3b18-8aaf-42e7-a3c1-ff4171992b13-5dc5abf7-b86f-4942-83bb-1b5ae12970d0afbfe192271d40734d8d4d9b37287a89.webp?w=330&h=330&fit=crop&crop=faces&dpr=2" alt="Makeup Primer SPF">
+        <h3>Makeup Primer with SPF</h3>
+    </div>
+</div>
+
+<!-- Serum Section -->
+<h2 class="section-header">Serum</h2>
+<div class="product-container">
+    <div class="product-card">
+        <img src="https://media.allure.com/photos/63536021538afb8067f3dd61/3:4/w_748%2Cc_limit/the%2520ordinary.jpg" alt="Aging Serum">
+        <h3>Antioxidant Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/41PcUF7hLNL._AC_.jpg" alt="Hyperpigmentation Serum">
+        <h3>Vitamin C Hyperpigmentation Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://beexotic.lk/cdn/shop/products/the-ordinaryniacinamide-10-zinc-1be-exoticsri-lanka-723681.jpg?v=1702476824" alt="Niacinamide Serum">
+        <h3>Niacinamide Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://media.allure.com/photos/65bbfe10982998f46d17d716/3:4/w_748%2Cc_limit/La%2520Roche-Posay%2520Hyalu%2520B5%2520Pure%2520Hyaluronic%2520Acid%2520Face%2520Serum.jpg" alt="Hyaluronic Acid Serum">
+        <h3>Hyaluronic Acid Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1580818588-12382710-9374728171720375.jpg?crop=0.800xw:1xh;center,top&resize=980:*" alt="Retinol Serum">
+        <h3>Retinol Serum</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/skincare/cleansers/acne-foaming-cream-wash/acne-foaming-wash-pdp-700x785-v1.jpg?rev=ccd4563e5237409c9c61607a33f9709f&w=369&hash=10249D0E8757E29417CABF88BA70B017" alt="Benzoyl Peroxide Serum">
+        <h3>Benzoyl Peroxide Treatment</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/41qpkM2pASL._SL1080_.jpg" alt="Brightening Serum">
+        <h3>Brightening Night Cream</h3>
+    </div>
+    <div class="product-card">
+        <img src="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-720w,f_auto,q_auto:best/newscms/2024_42/1998979/416hesahdsl-sl500-6470f7cf2c30c.jpg" alt="High-Potency Retinol Serum">
+        <h3>High-potency Retinol Cream</h3>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a href="home.html"><img src="{% static 'photos/glowify.png' %}" alt="Glowify Logo"></a>
+        </div>
+        <div class="footer-links">
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'blog' %}">Blogs</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Glowify. All rights reserved.</p>
+    </div>
+</footer>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

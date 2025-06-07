@@ -1,0 +1,248 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glowify</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=SUSE:wght@100..800&display=swap"
+    rel="stylesheet"
+  />
+  <!-- FontAwesome CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <!-- CSS LINK -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+          <img src="{% static 'photos/glowify.png' %}" alt="" />
+        </div>
+        <ul class="nav-links">
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'blog' %}">Blogs</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li>
+            <a href="{% url 'login' %}" class="login-btn">
+              Log out <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+    <section id="quiz-section">
+        <h2>Skincare Questionnaire</h2>
+        <p>Welcome to the Skincare Questionnaire! Answer a few quick questions about your skin's condition, concerns, and preferences. This will help us determine your unique skin type and provide personalized product recommendations and routines tailored just for you. Ready to find out your skin type? Let's get started!</p>
+        <form id="skincare-form">
+            <label for="skin_type">What is your skin type?</label>
+            <select id="skin_type" name="skin_type" required>
+                <option value="oily">Oily</option>
+                <option value="dry">Dry</option>
+                <option value="combination">Combination</option>
+                <option value="normal">Normal</option>
+            </select>
+            
+            <label for="main_concern">What is your main skin concern?</label>
+            <select id="main_concern" name="main_concern" required>
+                <option value="acne">Acne</option>
+                <option value="aging">Aging</option>
+                <option value="hyperpigmentation">Hyperpigmentation</option>
+                <option value="sensitivity">Sensitivity</option>
+            </select>
+
+            <label for="skin_sensitivity">Do you have sensitive skin?</label>
+            <select id="skin_sensitivity" name="skin_sensitivity" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="routine_frequency">How often do you follow a skincare routine?</label>
+            <select id="routine_frequency" name="routine_frequency" required>
+                <option value="daily">Daily</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="rarely">Rarely</option>
+            </select>
+
+            <label for="hydration_level">How well do you stay hydrated?</label>
+            <select id="hydration_level" name="hydration_level" required>
+                <option value="very">Very Well</option>
+                <option value="moderate">Moderate</option>
+                <option value="poor">Not Enough</option>
+            </select>
+
+            <label for="product_preference">Do you prefer natural or clinical skincare products?</label>
+            <select id="product_preference" name="product_preference" required>
+                <option value="natural">Natural</option>
+                <option value="clinical">Clinical</option>
+                <option value="both">Both</option>
+            </select>
+            
+            <label for="sun_exposure">How often are you exposed to the sun?</label>
+            <select id="sun_exposure" name="sun_exposure" required>
+                <option value="daily">Daily</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="rarely">Rarely</option>
+            </select>
+
+            <label for="makeup_usage">How often do you wear makeup?</label>
+            <select id="makeup_usage" name="makeup_usage" required>
+                <option value="daily">Daily</option>
+                <option value="sometimes">Sometimes</option>
+                <option value="rarely">Rarely</option>
+            </select>
+
+            <button type="submit">Get My Routine</button>
+        </form>
+    </section>
+    
+    <section id="routine-results" style="display: none;">
+        <h2>Your Personalized Skincare Routine</h2>
+        <div id="routine-content"></div>
+    </section>
+
+
+    <div class="cta-section">
+      <img src="https://www.bellobello.my/wp-content/uploads/2022/08/boldlipessentials-2.jpg" alt="Skincare Products">
+      <div>
+          <h2>View All Products</h2>
+          <p>Explore our full range of skincare products to complete your routine with the perfect match for your skin type. Here you can view all the products available, helping you better understand what you need to use based on your individual skincare goals and preferences.</p>
+          <a href="{% url 'products' %}">Browse Products</a>
+      </div>
+  </div>
+       
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <a href="home.html"><img src="{% static 'photos/glowify.png' %}" alt="Glowify Logo"></a>
+        </div>
+        <div class="footer-links">
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
+              <li><a href="{% url 'blog' %}">Blogs</a></li>
+              <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Glowify. All rights reserved.</p>
+    </div>
+</footer>
+<script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        document.getElementById("skincare-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Get the form values
+    const skinType = document.getElementById("skin_type").value;
+    const mainConcern = document.getElementById("main_concern").value;
+    const skinSensitivity = document.getElementById("skin_sensitivity").value;
+    const routineFrequency = document.getElementById("routine_frequency").value;
+    const hydrationLevel = document.getElementById("hydration_level").value;
+    const productPreference = document.getElementById("product_preference").value;
+    const sunExposure = document.getElementById("sun_exposure").value;
+    const makeupUsage = document.getElementById("makeup_usage").value;
+
+    // Define routines based on the selected answers
+    const routines = {
+        oily: {
+            morning: "Oil-free cleanser, lightweight moisturizer, SPF 50",
+            evening: "Salicylic acid cleanser, niacinamide serum, gel moisturizer"
+        },
+        dry: {
+            morning: "Hydrating cleanser, rich moisturizer, SPF 30",
+            evening: "Cream cleanser, hyaluronic acid serum, night cream"
+        },
+        combination: {
+            morning: "Gentle foaming cleanser, light moisturizer, SPF 40",
+            evening: "Balancing toner, retinol serum, gel-based night cream"
+        },
+        normal: {
+            morning: "Mild cleanser, hydrating moisturizer, SPF 30",
+            evening: "Micellar water, vitamin C serum, nourishing night cream"
+        }
+    };
+
+    // Define additional customizations based on other answers
+    let morningAdditions = "";
+    let eveningAdditions = "";
+
+    // Customize based on main concern
+    if (mainConcern === "acne") {
+        morningAdditions += ", Acne-fighting toner";
+        eveningAdditions += ", Benzoyl peroxide treatment";
+    } else if (mainConcern === "aging") {
+        morningAdditions += ", Antioxidant serum";
+        eveningAdditions += ", Retinol serum";
+    } else if (mainConcern === "hyperpigmentation") {
+        morningAdditions += ", Vitamin C serum";
+        eveningAdditions += ", Brightening night cream";
+    } else if (mainConcern === "sensitivity") {
+        morningAdditions += ", Calming toner";
+        eveningAdditions += ", Repairing night mask";
+    }
+
+    // Customize based on skin sensitivity
+    if (skinSensitivity === "yes") {
+        morningAdditions += ", Fragrance-free products";
+        eveningAdditions += ", Soothing aloe vera gel";
+    }
+
+    // Customize based on hydration level
+    if (hydrationLevel === "poor") {
+        morningAdditions += ", Hydrating mist";
+        eveningAdditions += ", Rich hydrating cream";
+    }
+
+    // Customize based on product preference
+    if (productPreference === "natural") {
+        morningAdditions += ", Natural essential oils";
+        eveningAdditions += ", Organic night cream";
+    } else if (productPreference === "clinical") {
+        morningAdditions += ", Clinical-grade serum";
+        eveningAdditions += ", High-potency retinol cream";
+    }
+
+    // Customize based on sun exposure
+    if (sunExposure === "daily") {
+        morningAdditions += ", Extra SPF protection";
+    }
+
+    // Customize based on makeup usage
+    if (makeupUsage === "daily") {
+        morningAdditions += ", Makeup primer with SPF";
+        eveningAdditions += ", Makeup remover oil";
+    }
+
+    // Finalize the routine
+    const recommendedRoutine = routines[skinType];
+    document.getElementById("routine-content").innerHTML = `
+        <h3>Morning Routine</h3>
+        <p>${recommendedRoutine.morning}${morningAdditions}</p>
+        <h3>Evening Routine</h3>
+        <p>${recommendedRoutine.evening}${eveningAdditions}</p>
+    `;
+    
+    // Show the results
+    document.getElementById("routine-results").style.display = "block";
+});
+
+    </script>
+</body>
+</html>
